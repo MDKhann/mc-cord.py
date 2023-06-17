@@ -3,4 +3,5 @@ eula.txt
 .env
 _examples
 _random_tests
+__pycache__
 server_config.json
