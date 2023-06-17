@@ -30,10 +30,3 @@ class ServerProperties:
         with open(self.file_path, 'w') as file:
             for key, value in self.properties.items():
                 file.write(f"{key}={value}\n")
-
-props = ServerProperties('new_properties.properties')
-motd = props.get_property('motd')
-
-with open("test", "w") as f:
-    f.write(motd)
-    f.close()
