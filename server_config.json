@@ -1,0 +1,51 @@
+{
+    "settings": {
+        "tokens": {
+            "discord_token": "MTA4Mzk2MTIzNTA1OTUxNTUwNA.GUxznv.CMLUV_7VuE4UrvE9Nxs14NBHIw4rvTGO8RM3LA",
+            "ngrok_token": "1aUpQo5qGXDiCW3ajVQKsWQUh6z_NC72snaoJV1QdBKhFNPK"
+        },
+        "minecraft_servers": {
+            "000000000": {
+                "server_name": "1.20 with Fabric",
+                "ngrok": {
+                    "auto_launch": true,
+                    "region": "eu",
+                    "discord_webhook": {
+                        "send_ip_with_webhook": true,
+                        "webhook_url": "https://discord.com/api/webhooks/1118909770506698813/J_eekftIr_uFLw84sN9shIp_f9H6fb0uK5AHVn3HjlGHFxMxeS4CQ1wCFLzO3QVlmRz7"
+                    },
+                    "connection": "tcp",
+                    "IP-channels": [
+                        "1097526006815916093"
+                    ]
+                },
+                "rcon": {
+                    "IP": "localhost",
+                    "password": "cool"
+                },
+                "launch_args": {
+                    "path": "C:/Users/dusti/AppData/Roaming/ATLauncher/servers/Minecraft120withFabric",
+                    "javapath": "java",
+                    "max_memory": "8G",
+                    "jvmargs": "",
+                    "launchargs": "",
+                    "server_jar": "fabric-server-launch.jar"
+                },
+                "minecraft_chat_channels": {
+                    "1098158206053785672": {
+                        "muted": false,
+                        "active": true,
+                        "message_log_types": {
+                            "user_messages": true,
+                            "death_notes": true,
+                            "achievements": true,
+                            "warns": false,
+                            "errors": false,
+                            "all": false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "settings": {
+        "tokens": {
+            "discord_token": null,
+            "ngrok_token": null
+        },
+        "minecraft_servers": {}
+    }
+}
