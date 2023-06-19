@@ -6,13 +6,14 @@ In server.properties change settings so that rcon works
 """
 
 class rcon:
-    def __init__(self, settings: dict, temp_settings: dict):
-        self.settings = settings
-        self.temp_settings = temp_settings
+    def __init__(self, modules: dict):
+        self.modules = modules
         self.create_rcon_session()
 
-    
     def create_rcon_session(self):
+        """
+        rework for modules dict
+        """
         temp_launch_args = self.settings["minecraft_servers"][(self.temp_settings["active_server_id"])]["rcon"]
         try:
             self.rcon_session = MCRcon(temp_launch_args["IP"], temp_launch_args["password"])
@@ -77,6 +78,7 @@ while True:
 {"Haflix has made the advancement ", "color":"white"}{"text":"[Serious Dedication]", "color":"dark_purple","hoverEvent":{"action":"show_text","value":{"text":"Use a Netherite Ingot to upgrade a Hoe, and then reevaluate your life choices", "color":"dark_purple"}}
 /tellraw @a ["",{"text":"Haflix has made the advancement "},{"text":"[Serious Dedication]", "color":"dark_purple","hoverEvent":{"action":"show_text","value":"Use a Netherite Ingot to upgrade a Hoe, and then reevaluate your life choices"}}]
 /tellraw @a ["",{"text":"[Server: Set Pixx_Unic's game mode to Noob Mode]", "color":"gray","italic":true}]
+/tellraw @a ["",{"text":"Haflix joined the game", "color":"yellow"}]
 tellraw: https://minecraft.fandom.com/wiki/Raw_JSON_text_format
 good commands:
     list
