@@ -34,7 +34,7 @@ class minecraft_server:
             with open("launch.sh", "w") as outfile:
                 outfile.write("cd " + launch_args["path"] + "\n")
                 outfile.write(f'{launch_args["javapath"]} -Xmx{launch_args["max_memory"]} -jar {launch_args["server_jar"]} {launch_args["launchargs"]} {launch_args["jvmargs"]}\n')
-                outfile.write("Exit /B")
+                outfile.write("exit 0")
                 outfile.close()
             self.start_file = "launch.sh"
         else:
