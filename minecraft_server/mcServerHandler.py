@@ -27,7 +27,7 @@ class minecraft_server:
             with open("launch.bat", "w") as outfile:
                 self.write_to_file(outfile, launch_args, "Exit /B")
             self.start_file = "launch.bat"
-        elif self.platform_raw.__contains__("Linux"):
+        elif self.platform("Linux"):
             with open("launch.sh", "w") as outfile:
                 self.write_to_file(outfile, launch_args, "exit 0")
             self.start_file = "launch.sh"
