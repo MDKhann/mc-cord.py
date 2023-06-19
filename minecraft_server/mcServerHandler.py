@@ -25,20 +25,20 @@ class minecraft_server:
         launch_args = self.modules["serverConfigHandler"].get_minecraft_servers()[f"{self.server_id}"]
         if self.platform == "Windows":
             with open("launch.bat", "w") as outfile:
-                outfile.write("cd " + launch_args["path"] + "\n")
-                outfile.write(f'{launch_args["javapath"]} -Xmx{launch_args["max_memory"]} -jar {launch_args["server_jar"]} {launch_args["launchargs"]} {launch_args["jvmargs"]}\n')
-                outfile.write("Exit /B")
-                outfile.close()
+                self.write_to_file(outfile, launch_args, "Exit /B")
             self.start_file = "launch.bat"
         elif self.platform_raw.__contains__("Linux"):
             with open("launch.sh", "w") as outfile:
-                outfile.write("cd " + launch_args["path"] + "\n")
-                outfile.write(f'{launch_args["javapath"]} -Xmx{launch_args["max_memory"]} -jar {launch_args["server_jar"]} {launch_args["launchargs"]} {launch_args["jvmargs"]}\n')
-                outfile.write("exit 0")
-                outfile.close()
+                self.write_to_file(outfile, launch_args, "exit 0")
             self.start_file = "launch.sh"
         else:
             print("OS is not compatible")
+
+    def write_to_file(self, outfile, launch_args, exit_command):
+        outfile.write("cd " + launch_args["path"] + "\n")
+        outfile.write(f'{launch_args["javapath"]} -Xmx{launch_args["max_memory"]} -jar {launch_args["server_jar"]} {launch_args["launchargs"]} {launch_args["jvmargs"]}\n')
+        outfile.write(exit_command)
+        outfile.close()
     
     def minecraft_server_thread(self):
         cmd_subprocess = Popen(f"{self.start_file}", stdout=PIPE, stdin=PIPE, stderr=STDOUT, shell=True)
