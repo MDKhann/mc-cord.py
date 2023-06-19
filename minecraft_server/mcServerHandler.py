@@ -10,6 +10,7 @@ class minecraft_server:
         self.modules = modules
         self.start_file = ""
         self.platform = platform.system()
+        self.platform_raw = platform.platform()
     
     def start_server_thread(self, server_id: str=""):
         if self.server_state == "off":
@@ -29,6 +30,13 @@ class minecraft_server:
                 outfile.write("Exit /B")
                 outfile.close()
             self.start_file = "launch.bat"
+        elif self.platform_raw.__contains__("Linux"):
+            with open("launch.sh", "w") as outfile:
+                outfile.write("cd " + launch_args["path"] + "\n")
+                outfile.write(f'{launch_args["javapath"]} -Xmx{launch_args["max_memory"]} -jar {launch_args["server_jar"]} {launch_args["launchargs"]} {launch_args["jvmargs"]}\n')
+                outfile.write("Exit /B")
+                outfile.close()
+            self.start_file = "launch.sh"
         else:
             print("OS is not compatible")
     
