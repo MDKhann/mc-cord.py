@@ -2,7 +2,6 @@ from subprocess import Popen, PIPE, STDOUT
 import discord
 import asyncio
 
-from discord_webhook import DiscordWebhook
 import json
 import platform
 
