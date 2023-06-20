@@ -22,6 +22,10 @@ class minecraft_server:
             self.server_state = "booting"
     
     def create_start_file(self):
+        """
+        TODO:https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server # Look for "Minecraft options"
+        |--> add more arguments
+        """
         launch_args = self.modules["serverConfigHandler"].get_minecraft_servers()[f"{self.server_id}"]
         if self.platform == "Windows":
             with open("launch.bat", "w") as outfile:
