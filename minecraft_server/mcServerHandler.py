@@ -2,6 +2,11 @@ from subprocess import Popen, PIPE, STDOUT
 import threading
 import platform
 
+"""
+new:
+1.without threading, only output
+"""
+
 class minecraft_server:
     def __init__(self, modules: dict):
         self.server_id = ""
